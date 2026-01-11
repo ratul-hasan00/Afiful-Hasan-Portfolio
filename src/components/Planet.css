@@ -1,0 +1,85 @@
+.planet-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.planet {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, #90caf9, #1976d2);
+  border-radius: 50%;
+  position: relative;
+  animation: rotatePlanet 20s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.planet-ring {
+  position: absolute;
+  width: 140px;
+  height: 8px;
+  border: 2px solid #64b5f6;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  animation: rotateRing 10s linear infinite reverse;
+}
+
+@keyframes rotatePlanet {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Moons orbiting around the planet */
+.moon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.moon-1 {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orbit1 8s linear infinite;
+}
+
+.moon-2 {
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orbit2 12s linear infinite;
+}
+
+.moon-3 {
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  animation: orbit3 10s linear infinite;
+}
+
+@keyframes orbit1 {
+  0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+@keyframes orbit2 {
+  0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+@keyframes orbit3 {
+  0% { transform: rotate(0deg) translateX(55px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(55px) rotate(-360deg); }
+}
