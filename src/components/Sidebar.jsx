@@ -68,13 +68,12 @@ export default function Sidebar() {
         className={`fixed top-0 left-0 h-screen
         bg-black/60 backdrop-blur-xl border-r border-white/10
         z-50 transition-all duration-500 ease-out
-        ${open ? "translate-x-0" : "-translate-x-full"}
+        ${open ? "translate-x-0 w-64" : "-translate-x-full"}
         lg:translate-x-0 lg:w-[80px] lg:hover:w-64 group`}
       >
         <div className="flex flex-col h-full px-3 py-6 gap-8">
           {/* LOGO + NAME */}
           <div className="flex items-center gap-4 px-2 justify-center lg:justify-start">
-            {/* LOGO */}
             <div
               className="
                 w-12 h-12 min-w-[48px]
@@ -83,7 +82,6 @@ export default function Sidebar() {
                 flex items-center justify-center
                 font-extrabold text-black text-xl
                 shadow-[0_0_10px_rgba(255,255,255,0.18)]
-                mx-auto lg:mx-0
                 transition-all duration-500 ease-out
                 group-hover:shadow-[0_0_18px_rgba(255,255,255,0.28)]
               "
@@ -91,15 +89,15 @@ export default function Sidebar() {
               A
             </div>
 
-            {/* NAME */}
             <span
-              className="
+              className={`
                 text-lg font-semibold tracking-[0.2em]
                 text-gray-200
-                opacity-0 group-hover:opacity-100
-                translate-x-[-6px] group-hover:translate-x-0
                 transition-all duration-500 ease-out
-              "
+                ${open ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2"}
+                lg:opacity-0 lg:group-hover:opacity-100
+                lg:-translate-x-2 lg:group-hover:translate-x-0
+              `}
             >
               AFIFUL
             </span>
@@ -129,23 +127,16 @@ export default function Sidebar() {
                     }
                   `}
                 >
-                  {/* ICON */}
-                  <Icon
-                    size={22}
-                    className="
-                      transition-transform duration-300 ease-out
-                      group-hover:translate-x-[1px]
-                    "
-                  />
+                  <Icon size={22} />
 
-                  {/* LABEL */}
                   <span
-                    className="
+                    className={`
                       whitespace-nowrap
-                      opacity-0 group-hover:opacity-100
-                      translate-x-[-6px] group-hover:translate-x-0
                       transition-all duration-500 ease-out
-                    "
+                      ${open ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2"}
+                      lg:opacity-0 lg:group-hover:opacity-100
+                      lg:-translate-x-2 lg:group-hover:translate-x-0
+                    `}
                   >
                     {n.label}
                   </span>
@@ -156,11 +147,11 @@ export default function Sidebar() {
 
           {/* FOOTER */}
           <div
-            className="
-              mt-auto text-xs text-gray-600
-              opacity-0 group-hover:opacity-100
-              transition duration-500
-            "
+            className={`
+              mt-auto text-xs text-gray-600 transition duration-500
+              ${open ? "opacity-100" : "opacity-0"}
+              lg:opacity-0 lg:group-hover:opacity-100
+            `}
           >
             © 2026 Afiful
           </div>

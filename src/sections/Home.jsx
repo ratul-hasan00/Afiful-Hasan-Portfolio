@@ -7,7 +7,13 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen flex items-center bg-[#0b0b0b] overflow-hidden px-4 sm:px-6 lg:px-12"
+      className="
+        relative w-full min-h-screen
+        flex items-center
+        bg-[#0b0b0b] overflow-hidden
+        px-4 sm:px-6 lg:px-12
+        pt-20 lg:pt-0
+      "
     >
       {/* Background effects */}
       <Effects />
@@ -75,11 +81,13 @@ export default function Home() {
         </div>
 
         {/* RIGHT: ROBOT */}
-        <div className="
-          flex justify-center items-center
-          mt-10 lg:mt-0
-          scale-90 sm:scale-100
-        ">
+        <div
+          className="
+            flex justify-center items-center
+            mt-10 lg:mt-0
+            scale-90 sm:scale-100
+          "
+        >
           <div className="translate-y-6 sm:translate-y-10 lg:translate-y-14">
             <Robot />
           </div>
