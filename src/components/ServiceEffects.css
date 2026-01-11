@@ -1,38 +1,64 @@
-/* Random floating shapes animation */
-@keyframes float-random {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(15px, -10px) rotate(90deg); }
-  50% { transform: translate(-10px, 15px) rotate(180deg); }
-  75% { transform: translate(20px, -20px) rotate(270deg); }
-  100% { transform: translate(0, 0) rotate(360deg); }
-}
-.animate-float-random {
-  animation-name: float-random;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+/* ===================== */
+/* DESKTOP ONLY ANIMATIONS */
+/* ===================== */
+@media (min-width: 1024px) {
+
+  /* Random floating shapes animation */
+  @keyframes float-random {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(15px, -10px) rotate(90deg); }
+    50% { transform: translate(-10px, 15px) rotate(180deg); }
+    75% { transform: translate(20px, -20px) rotate(270deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+  }
+  .animate-float-random {
+    animation-name: float-random;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* Snowfall animation */
+  @keyframes snow-fall {
+    0% { transform: translateY(0px); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(120vh); opacity: 0; }
+  }
+  .animate-snow-fall {
+    animation-name: snow-fall;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  /* Glow for moon */
+  .glow {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Optional heavy shapes shadows */
+  .rounded-sm {
+    box-shadow: 0 0 6px rgba(255,255,255,0.1);
+  }
 }
 
-/* Triangle shape */
-.triangle {
-  width: 0;
-  height: 0;
-  position: absolute;
-}
+/* ===================== */
+/* MOBILE OPTIMIZATION */
+/* ===================== */
+@media (max-width: 1023px) {
+  /* Disable floating animation */
+  .animate-float-random,
+  .animate-snow-fall {
+    animation: none !important;
+  }
 
-/* Glow for moon */
-.glow {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
-              0 0 30px rgba(255, 255, 255, 0.3);
-}
+  /* Remove glow/shadows for performance */
+  .glow,
+  .rounded-sm {
+    box-shadow: none !important;
+  }
 
-/* Snowfall animation */
-@keyframes snow-fall {
-  0% { transform: translateY(0px); opacity: 0; }
-  50% { opacity: 0.8; }
-  100% { transform: translateY(120vh); opacity: 0; }
-}
-.animate-snow-fall {
-  animation-name: snow-fall;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  /* Optional: reduce triangle/big shapes visibility */
+  .triangle {
+    display: none;
+  }
 }

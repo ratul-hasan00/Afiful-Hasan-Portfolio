@@ -1,58 +1,106 @@
-/* Floating background shapes animation */
-@keyframes float-random {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(15px, -10px) rotate(45deg); }
-  50% { transform: translate(-10px, 15px) rotate(180deg); }
-  75% { transform: translate(20px, -20px) rotate(270deg); }
-  100% { transform: translate(0, 0) rotate(360deg); }
-}
-.animate-float-random {
-  animation-name: float-random;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+/* ===================== */
+/* DESKTOP ANIMATIONS ONLY */
+/* ===================== */
+@media (min-width: 1024px) {
+
+  /* Floating background shapes animation */
+  @keyframes float-random {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(15px, -10px) rotate(45deg); }
+    50% { transform: translate(-10px, 15px) rotate(180deg); }
+    75% { transform: translate(20px, -20px) rotate(270deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+  }
+  .animate-float-random {
+    animation-name: float-random;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* Rain animation */
+  @keyframes rain-fall {
+    0% { transform: translateY(0px); opacity: 0; }
+    50% { opacity: 0.3; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+  .animate-rain-fall {
+    animation-name: rain-fall;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  /* Dark lighting gradient animation */
+  @keyframes lighting {
+    0% { transform: translateX(-100%); opacity: 0.2; }
+    50% { transform: translateX(100%); opacity: 0.4; }
+    100% { transform: translateX(-100%); opacity: 0.2; }
+  }
+  .animate-lighting {
+    animation-name: lighting;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    pointer-events: none;
+  }
+
+  /* Triangle shape for background */
+  .triangle {
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  /* Glow effect for shapes */
+  .glow, .rounded-sm {
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  }
+
+  /* Optional: subtle float for all skill cards on desktop */
+  @keyframes float-skill {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
+  .skill-card.animate-float-skill {
+    animation-name: float-skill;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
 }
 
-/* Triangle shape for background */
-.triangle {
-  width: 0;
-  height: 0;
-  position: absolute;
+/* ===================== */
+/* MOBILE OPTIMIZATION */
+/* ===================== */
+@media (max-width: 1023px) {
+  /* Disable heavy animations */
+  .animate-float-random,
+  .animate-rain-fall,
+  .animate-lighting,
+  .triangle,
+  .glow,
+  .rounded-sm {
+    animation: none !important;
+    box-shadow: none !important;
+    display: none; /* hide shapes for performance */
+  }
+
+  /* Disable float for skill cards on mobile */
+  .skill-card.animate-float-skill {
+    animation: none !important;
+  }
 }
 
-/* Rain animation */
-@keyframes rain-fall {
-  0% { transform: translateY(0px); opacity: 0; }
-  50% { opacity: 0.3; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-.animate-rain-fall {
-  animation-name: rain-fall;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-/* Dark lighting gradient animation */
-@keyframes lighting {
-  0% { transform: translateX(-100%); opacity: 0.2; }
-  50% { transform: translateX(100%); opacity: 0.4; }
-  100% { transform: translateX(-100%); opacity: 0.2; }
-}
-.animate-lighting {
-  animation-name: lighting;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  pointer-events: none;
-}
-
-/* Glass-style skill cards */
+/* ===================== */
+/* GLASS-STYLE SKILL CARDS (ALL DEVICES) */
+/* ===================== */
 .skill-card {
-  width: 7rem; /* slightly bigger for better spacing */
+  width: 7rem;
   height: 7rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.05); /* glass blur */
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-radius: 9999px; /* full circle */
+  border-radius: 9999px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,13 +110,11 @@
   transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
-/* Smooth hover scale + shadow */
 .skill-card:hover {
   transform: scale(1.15);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
 }
 
-/* Skill text styling */
 .skill-card span {
   color: #b0b0b0;
   margin-top: 0.5rem;
@@ -76,23 +122,10 @@
   text-align: center;
 }
 
-/* Optional: subtle float for all skill cards */
-@keyframes float-skill {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
-}
-.skill-card.animate-float-skill {
-  animation-name: float-skill;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-/* Responsive spacing for the 2 rows */
+/* Responsive spacing for skill rows */
 .skills-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2.5rem; /* increased gap for better spacing */
+  gap: 2.5rem;
 }

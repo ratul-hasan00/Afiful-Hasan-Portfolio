@@ -1,53 +1,62 @@
 import React, { useState } from "react";
 
-const SHAPES_COUNT = 60; // small shapes
-const BIG_SHAPES_COUNT = 10; // big shapes
-const SNOW_COUNT = 80; // snow particles
+const SHAPES_COUNT_DESKTOP = 60;
+const BIG_SHAPES_COUNT_DESKTOP = 10;
+const SNOW_COUNT_DESKTOP = 80;
+
+// Mobile optimized counts
+const SHAPES_COUNT_MOBILE = 10;
+const BIG_SHAPES_COUNT_MOBILE = 2;
+const SNOW_COUNT_MOBILE = 20;
 
 function random(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-// Small shapes
-const generateShapes = () =>
-  Array.from({ length: SHAPES_COUNT }).map(() => {
-    const type = ["cube", "triangle"][Math.floor(Math.random() * 2)];
-    const size = random(5, 15);
-    return {
-      type,
-      size,
-      top: random(0, 90),
-      left: random(0, 90),
-      duration: random(15, 40),
-      color: `rgba(255,255,255,${random(0.2, 0.6)})`,
-    };
-  });
-
-// Big shapes
-const generateBigShapes = () =>
-  Array.from({ length: BIG_SHAPES_COUNT }).map(() => {
-    const type = ["cube", "triangle"][Math.floor(Math.random() * 2)];
-    const size = random(20, 40);
-    return {
-      type,
-      size,
-      top: random(0, 90),
-      left: random(0, 90),
-      duration: random(30, 60),
-      color: `rgba(255,255,255,${random(0.3, 0.7)})`,
-    };
-  });
-
-// Snow particles
-const generateSnow = () =>
-  Array.from({ length: SNOW_COUNT }).map(() => ({
-    size: random(2, 6),
-    left: `${random(0, 100)}%`,
-    duration: `${random(5, 15)}s`,
-    opacity: random(0.2, 0.8),
-  }));
-
 export default function ServiceEffects() {
+  const isMobile = window.innerWidth < 1024; // breakpoint for mobile/tablet
+
+  const shapesCount = isMobile ? SHAPES_COUNT_MOBILE : SHAPES_COUNT_DESKTOP;
+  const bigShapesCount = isMobile ? BIG_SHAPES_COUNT_MOBILE : BIG_SHAPES_COUNT_DESKTOP;
+  const snowCount = isMobile ? SNOW_COUNT_MOBILE : SNOW_COUNT_DESKTOP;
+
+  // Generate shapes
+  const generateShapes = () =>
+    Array.from({ length: shapesCount }).map(() => {
+      const type = ["cube", "triangle"][Math.floor(Math.random() * 2)];
+      const size = random(5, 15);
+      return {
+        type,
+        size,
+        top: random(0, 90),
+        left: random(0, 90),
+        duration: random(15, 40),
+        color: `rgba(255,255,255,${random(0.2, 0.6)})`,
+      };
+    });
+
+  const generateBigShapes = () =>
+    Array.from({ length: bigShapesCount }).map(() => {
+      const type = ["cube", "triangle"][Math.floor(Math.random() * 2)];
+      const size = random(20, 40);
+      return {
+        type,
+        size,
+        top: random(0, 90),
+        left: random(0, 90),
+        duration: random(30, 60),
+        color: `rgba(255,255,255,${random(0.3, 0.7)})`,
+      };
+    });
+
+  const generateSnow = () =>
+    Array.from({ length: snowCount }).map(() => ({
+      size: random(2, 6),
+      left: `${random(0, 100)}%`,
+      duration: `${random(5, 15)}s`,
+      opacity: random(0.2, 0.8),
+    }));
+
   const [shapes] = useState(generateShapes);
   const [bigShapes] = useState(generateBigShapes);
   const [snow] = useState(generateSnow);
@@ -68,7 +77,7 @@ export default function ServiceEffects() {
         }}
       />
 
-      {/* Small floating shapes */}
+      {/* Small shapes */}
       {shapes.map((s, i) => (
         <div
           key={i}
@@ -79,18 +88,15 @@ export default function ServiceEffects() {
             top: `${s.top}%`,
             left: `${s.left}%`,
             backgroundColor: s.type === "triangle" ? "transparent" : s.color,
-            borderLeft:
-              s.type === "triangle" ? `${s.size / 2}px solid transparent` : "",
-            borderRight:
-              s.type === "triangle" ? `${s.size / 2}px solid transparent` : "",
-            borderBottom:
-              s.type === "triangle" ? `${s.size}px solid ${s.color}` : "",
+            borderLeft: s.type === "triangle" ? `${s.size / 2}px solid transparent` : "",
+            borderRight: s.type === "triangle" ? `${s.size / 2}px solid transparent` : "",
+            borderBottom: s.type === "triangle" ? `${s.size}px solid ${s.color}` : "",
             animationDuration: `${s.duration}s`,
           }}
         />
       ))}
 
-      {/* Big floating shapes */}
+      {/* Big shapes */}
       {bigShapes.map((s, i) => (
         <div
           key={i}
@@ -101,12 +107,9 @@ export default function ServiceEffects() {
             top: `${s.top}%`,
             left: `${s.left}%`,
             backgroundColor: s.type === "triangle" ? "transparent" : s.color,
-            borderLeft:
-              s.type === "triangle" ? `${s.size / 2}px solid transparent` : "",
-            borderRight:
-              s.type === "triangle" ? `${s.size / 2}px solid transparent` : "",
-            borderBottom:
-              s.type === "triangle" ? `${s.size}px solid ${s.color}` : "",
+            borderLeft: s.type === "triangle" ? `${s.size / 2}px solid transparent` : "",
+            borderRight: s.type === "triangle" ? `${s.size / 2}px solid transparent` : "",
+            borderBottom: s.type === "triangle" ? `${s.size}px solid ${s.color}` : "",
             animationDuration: `${s.duration}s`,
           }}
         />

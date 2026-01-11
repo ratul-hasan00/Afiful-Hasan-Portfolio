@@ -31,11 +31,10 @@ export default function Sidebar({ lenis }) {
     const onScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          // Use Lenis scroll position if available
+          // Use Lenis scroll if available, fallback to window.scrollY
           const scrollPos = lenis?.current?.scroll || window.scrollY;
 
           let current = navs[0].id;
-
           navs.forEach((n) => {
             const sec = document.getElementById(n.id);
             if (sec) {
@@ -58,7 +57,7 @@ export default function Sidebar({ lenis }) {
   return (
     <>
       {/* MOBILE TOP BAR */}
-      <div className="fixed top-0 left-0 w-full h-14 bg-black/60 backdrop-blur border-b border-white/10 flex items-center px-4 z-50 lg:hidden">
+      <div className="fixed top-0 left-0 w-full h-14 bg-black/60 lg:hidden backdrop-blur border-b border-white/10 flex items-center px-4 z-50">
         <button onClick={() => setOpen(true)}>
           <Menu />
         </button>
@@ -93,7 +92,7 @@ export default function Sidebar({ lenis }) {
                 bg-gradient-to-br from-gray-200 to-gray-400
                 flex items-center justify-center
                 font-extrabold text-black text-xl
-                shadow-[0_0_10px_rgba(255,255,255,0.18)]
+                shadow-lg lg:shadow-lg
                 transition-all duration-500 ease-out
                 group-hover:shadow-[0_0_18px_rgba(255,255,255,0.28)]
               "
