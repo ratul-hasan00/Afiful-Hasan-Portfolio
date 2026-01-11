@@ -25,7 +25,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full min-h-screen py-24 text-white overflow-hidden bg-[#0b0b0b] px-6 md:px-12"
+      className="relative w-full min-h-screen py-24 text-white overflow-hidden bg-[#0b0b0b] px-4 sm:px-6 md:px-12"
     >
       <Toaster position="top-right" />
 
@@ -37,7 +37,7 @@ export default function Contact() {
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
 
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 px-2 sm:px-6">
           <h2 className="text-4xl sm:text-5xl font-semibold mb-3">Get in Touch</h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
             Reach out for collaborations, opportunities, or any inquiries.
@@ -45,9 +45,9 @@ export default function Contact() {
         </div>
 
         {/* Contact Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 w-full justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 w-full justify-items-center">
           {/* Phone Card */}
-          <div className="p-6 w-full max-w-xs rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
+          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
             <Phone size={28} className="text-green-400 mb-3" />
             <h3 className="font-medium mb-1 text-white">Phone</h3>
             <p className="text-gray-400 mb-1 text-sm sm:text-base">Feel Free To Call Me Anytime</p>
@@ -55,10 +55,12 @@ export default function Contact() {
           </div>
 
           {/* Location Card */}
-          <div className="p-6 w-full max-w-xs rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
+          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
             <MapPin size={28} className="text-green-400 mb-3" />
             <h3 className="font-medium mb-1 text-white">Location</h3>
-            <p className="text-gray-400 mb-1 text-sm sm:text-base">Amin Bazar, Savar, Dhaka, Bangladesh</p>
+            <p className="text-gray-400 mb-1 text-sm sm:text-base text-center">
+              Amin Bazar, Savar, Dhaka, Bangladesh
+            </p>
             <a
               href="https://www.google.com/maps/@23.786758,90.3289589,3a,75y,25.26h,111.63t/data=!3m7!1e1!3m5!1swv0XWd24hTj4Khq3kMNtLQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-21.626742877214795%26panoid%3Dwv0XWd24hTj4Khq3kMNtLQ%26yaw%3D25.255994016547618!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
               target="_blank"
@@ -70,7 +72,7 @@ export default function Contact() {
           </div>
 
           {/* Email / Social Card */}
-          <div className="p-6 w-full max-w-xs rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
+          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
             <Mail size={28} className="text-green-400 mb-3" />
             <h3 className="font-medium mb-1 text-white">Email / Social</h3>
             <p className="text-gray-400 mb-2 text-sm sm:text-base">Connect with me</p>
@@ -141,7 +143,7 @@ export default function Contact() {
 
       {/* Email Modal */}
       {isEmailModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4 sm:px-6">
           <div
             className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 max-w-sm w-full relative text-center"
             onClick={(e) => e.stopPropagation()}
