@@ -21,27 +21,39 @@ const navs = [
   { id: "contact", label: "Contact", icon: Mail },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ lenis }) {
   const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const onScroll = () => {
-      const pos = window.scrollY + 200;
-      navs.forEach((n) => {
-        const sec = document.getElementById(n.id);
-        if (
-          sec &&
-          sec.offsetTop <= pos &&
-          sec.offsetTop + sec.offsetHeight > pos
-        ) {
-          setActive(n.id);
-        }
-      });
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // Use Lenis scroll position if available
+          const scrollPos = lenis?.current?.scroll || window.scrollY;
+
+          let current = navs[0].id;
+
+          navs.forEach((n) => {
+            const sec = document.getElementById(n.id);
+            if (sec) {
+              const offset = sec.offsetTop - window.innerHeight / 3;
+              if (scrollPos >= offset) current = n.id;
+            }
+          });
+
+          setActive(current);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [lenis]);
 
   return (
     <>
