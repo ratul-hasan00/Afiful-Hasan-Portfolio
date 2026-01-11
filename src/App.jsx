@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Lenis from "lenis"; // ✅ correct import
+import Lenis from "lenis";
 
 import Sidebar from "./components/Sidebar";
 import Home from "./sections/Home";
@@ -14,11 +14,14 @@ export default function App() {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    // Detect if device is mobile/tablet
+    const isMobile = window.innerWidth < 768;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,   // desktop
-      smoothTouch: true,   // mobile/tablet
+      smoothWheel: true,           // desktop wheel smooth scroll
+      smoothTouch: !isMobile,      // disable on mobile for performance
     });
 
     lenisRef.current = lenis;
@@ -35,6 +38,7 @@ export default function App() {
 
   return (
     <div className="flex bg-[#0b0b0b] text-gray-200">
+      {/* Pass Lenis ref to Sidebar */}
       <Sidebar lenis={lenisRef} />
 
       <main className="flex-1 lg:ml-[72px]">
