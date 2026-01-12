@@ -76,10 +76,10 @@ export default function Blog() {
               p-6 sm:p-8
               rounded-2xl
               bg-white/5 backdrop-blur-md
-              border border-white/10
-              shadow-[0_8px_30px_rgba(0,0,0,0.35)]
-              hover:bg-white/10
+              border border-yellow-400/50
               transition-all duration-500
+              hover:-translate-y-1
+              hover:shadow-[0_6px_16px_rgba(250,204,21,0.25)]
               cursor-pointer
               flex flex-col
               h-full
@@ -104,7 +104,15 @@ export default function Blog() {
           onClick={closeModal}
         >
           <div
-            className="bg-gray-900/95 text-white p-6 sm:p-8 rounded-2xl max-w-3xl w-full relative shadow-lg animate-fadeIn"
+            className="
+              bg-gray-900/95 text-white p-6 sm:p-8
+              rounded-2xl max-w-3xl w-full
+              relative
+              shadow-lg
+              border border-purple-700/50
+              hover:shadow-[0_6px_16px_rgba(128,0,128,0.3)]
+              animate-fadeIn
+            "
             onClick={(e) => e.stopPropagation()}
           >
             <button

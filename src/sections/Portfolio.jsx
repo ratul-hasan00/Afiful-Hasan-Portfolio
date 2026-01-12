@@ -48,14 +48,15 @@ export default function Portfolio() {
               className="
                 group
                 bg-gray-800/80 backdrop-blur-md
-                border border-gray-700
+                border border-[#5C3A21]/50
                 rounded-2xl
                 p-6 sm:p-8
                 flex flex-col
                 text-left
                 w-full sm:w-80
                 transition-all duration-300 ease-out
-                hover:-translate-y-2 hover:shadow-lg hover:shadow-white/20
+                hover:-translate-y-1
+                hover:shadow-[0_6px_16px_rgba(92,58,33,0.3)]
               "
             >
               <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">

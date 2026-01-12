@@ -60,20 +60,24 @@ export default function Services() {
             <div
               key={service.title}
               className="
-                group
-                bg-gray-800/80
-                border border-gray-700
-                rounded-xl
-                p-6
-                flex flex-col
-                items-start
-                text-left
-                max-w-sm
-                h-auto
-                transition-all duration-300 ease-out
-                hover:-translate-y-2 hover:shadow-lg hover:shadow-white/10
-              "
+    group
+    relative
+    bg-gray-800/80
+    rounded-xl
+    p-6
+    flex flex-col
+    items-start
+    text-left
+    max-w-sm
+    h-auto
+    border border-blue-400/50
+    shadow-[0_0_8px_rgba(96,165,250,0.25)]
+    transition-all duration-300 ease-out
+    hover:-translate-y-2
+    hover:shadow-[0_8px_20px_rgba(96,165,250,0.25),0_0_14px_rgba(96,165,250,0.35)]
+  "
             >
+
               {/* Icon */}
               <div className="text-blue-400 mb-4 transition-transform duration-300 ease-out group-hover:scale-110">
                 {service.icon}

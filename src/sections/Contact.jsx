@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Phone, MapPin, Mail, Linkedin, Facebook, X } from "lucide-react";
+import { Phone, MapPin, Mail, Linkedin, Facebook, X, Send } from "lucide-react";
 import { Toaster, toast } from "react-hot-toast";
 import ContactEffects from "../components/ContactEffects";
 import "../components/ContactEffects.css";
@@ -47,15 +47,20 @@ export default function Contact() {
         {/* Contact Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 w-full justify-items-center">
           {/* Phone Card */}
-          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
+          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/50 hover:shadow-[0_6px_16px_rgba(255,255,255,0.25)] transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
             <Phone size={28} className="text-green-400 mb-3" />
             <h3 className="font-medium mb-1 text-white">Phone</h3>
             <p className="text-gray-400 mb-1 text-sm sm:text-base">Feel Free To Call Me Anytime</p>
-            <span className="font-medium text-white text-sm sm:text-base">+8801754677889</span>
+            <a
+              href="tel:+8801754677889"
+              className="font-medium text-white text-sm sm:text-base underline hover:text-green-300 transition"
+            >
+              +8801754677889
+            </a>
           </div>
 
           {/* Location Card */}
-          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
+          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/50 hover:shadow-[0_6px_16px_rgba(255,255,255,0.25)] transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
             <MapPin size={28} className="text-green-400 mb-3" />
             <h3 className="font-medium mb-1 text-white">Location</h3>
             <p className="text-gray-400 mb-1 text-sm sm:text-base text-center">
@@ -72,7 +77,7 @@ export default function Contact() {
           </div>
 
           {/* Email / Social Card */}
-          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
+          <div className="p-6 w-full max-w-xs mx-auto rounded-2xl bg-white/5 backdrop-blur-lg border border-white/50 hover:shadow-[0_6px_16px_rgba(255,255,255,0.25)] transition-all duration-300 cursor-pointer flex flex-col items-center text-center">
             <Mail size={28} className="text-green-400 mb-3" />
             <h3 className="font-medium mb-1 text-white">Email / Social</h3>
             <p className="text-gray-400 mb-2 text-sm sm:text-base">Connect with me</p>
@@ -96,6 +101,14 @@ export default function Contact() {
               >
                 <Facebook size={20} />
               </a>
+              <a
+                href="https://wa.me/8801754677889"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-green-300 transition"
+              >
+                <Phone size={20} />
+              </a>
             </div>
           </div>
         </div>
@@ -103,40 +116,41 @@ export default function Contact() {
         {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-3xl p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg flex flex-col gap-4"
+          className="w-full max-w-3xl p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/50 hover:shadow-[0_6px_16px_rgba(255,255,255,0.25)] flex flex-col gap-4 transition-all duration-300"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
               placeholder="Your Name"
               required
-              className="w-full px-4 py-3 rounded-md bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-gray-400"
+              className="w-full px-4 py-3 rounded-md bg-black/40 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gray-400"
             />
             <input
               type="text"
               placeholder="Subject"
               required
-              className="w-full px-4 py-3 rounded-md bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-gray-400"
+              className="w-full px-4 py-3 rounded-md bg-black/40 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gray-400"
             />
           </div>
           <input
             type="email"
             placeholder="Email"
             required
-            className="w-full px-4 py-3 rounded-md bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-gray-400"
+            className="w-full px-4 py-3 rounded-md bg-black/40 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gray-400"
           />
           <textarea
             rows="5"
             placeholder="Your Message"
             required
-            className="w-full px-4 py-3 rounded-md bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-gray-400 resize-none"
+            className="w-full px-4 py-3 rounded-md bg-black/40 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gray-400 resize-none"
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-md bg-white/10 backdrop-blur-md border border-white/20 text-green-400 font-medium hover:bg-white/20 hover:backdrop-blur-lg hover:scale-105 transition-all duration-500 ease-in-out disabled:opacity-60"
+            className="w-full py-3 rounded-md bg-white/10 backdrop-blur-md border border-white/30 text-green-400 font-medium hover:bg-white/20 hover:backdrop-blur-lg hover:scale-105 transition-all duration-500 ease-in-out disabled:opacity-60 flex items-center justify-center gap-2"
           >
-            {loading ? "Sending..." : "Submit"}
+            {loading ? "Sending..." : "Send Message"}
+            <Send size={20} />
           </button>
         </form>
       </div>
@@ -145,7 +159,7 @@ export default function Contact() {
       {isEmailModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4 sm:px-6">
           <div
-            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 max-w-sm w-full relative text-center"
+            className="bg-white/10 backdrop-blur-md border border-white/50 rounded-2xl p-6 sm:p-8 max-w-sm w-full relative text-center hover:shadow-[0_6px_16px_rgba(255,255,255,0.25)] transition-all duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -155,7 +169,13 @@ export default function Contact() {
               <X size={24} />
             </button>
             <h3 className="text-2xl font-semibold mb-4 text-white">My Email</h3>
-            <p className="text-gray-200 text-lg sm:text-xl">afifulhasan28@gmail.com</p>
+            <p className="text-gray-200 text-lg sm:text-xl mb-4">afifulhasan28@gmail.com</p>
+            <a
+              href="mailto:afifulhasan28@gmail.com"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-green-400/20 text-green-400 font-medium hover:bg-green-400/30 hover:scale-105 transition-all duration-300"
+            >
+              <Mail size={18} /> Send Email
+            </a>
           </div>
         </div>
       )}

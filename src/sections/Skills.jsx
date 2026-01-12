@@ -74,13 +74,13 @@ function SkillCard({ skill }) {
       className="
         flex flex-col items-center justify-center
         bg-white/5 backdrop-blur-md
-        border border-gray-700
+        border border-green-400/50
         rounded-2xl
         p-4 sm:p-5
         w-24 sm:w-28 md:w-32
         transition-all duration-300 ease-out
         hover:scale-105 hover:bg-white/10
-        hover:shadow-lg hover:shadow-green-400/20
+        hover:shadow-lg hover:shadow-green-400/25
       "
     >
       {/* Logo Wrapper */}
