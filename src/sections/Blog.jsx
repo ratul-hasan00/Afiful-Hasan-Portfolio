@@ -76,10 +76,10 @@ export default function Blog() {
               p-6 sm:p-8
               rounded-2xl
               bg-white/5 backdrop-blur-md
-              border border-yellow-400/50
+              border border-purple-500/50
               transition-all duration-500
               hover:-translate-y-1
-              hover:shadow-[0_6px_16px_rgba(250,204,21,0.25)]
+              hover:shadow-[0_6px_16px_rgba(128,0,128,0.25)]
               cursor-pointer
               flex flex-col
               h-full
@@ -90,7 +90,7 @@ export default function Blog() {
             </h3>
             <p className="text-gray-400 text-sm mb-4">{post.date}</p>
             <p className="text-gray-300 text-sm sm:text-base flex-grow">{post.excerpt}</p>
-            <span className="text-yellow-400 font-medium mt-4 hover:text-yellow-300 transition-colors">
+            <span className="text-purple-500 font-medium mt-4 hover:text-purple-400 transition-colors">
               Read More →
             </span>
           </div>
@@ -108,9 +108,8 @@ export default function Blog() {
               bg-gray-900/95 text-white p-6 sm:p-8
               rounded-2xl max-w-3xl w-full
               relative
-              shadow-lg
-              border border-purple-700/50
-              hover:shadow-[0_6px_16px_rgba(128,0,128,0.3)]
+              border-2 border-purple-500
+              shadow-[0_0_20px_rgba(128,0,128,0.6)]
               animate-fadeIn
             "
             onClick={(e) => e.stopPropagation()}

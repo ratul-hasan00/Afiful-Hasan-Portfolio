@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Phone, MapPin, Mail, Linkedin, Facebook, X, Send } from "lucide-react";
+import { Phone, MapPin, Mail, Linkedin, Facebook, X, Send, Github } from "lucide-react";
 import { Toaster, toast } from "react-hot-toast";
 import ContactEffects from "../components/ContactEffects";
 import "../components/ContactEffects.css";
@@ -108,6 +108,15 @@ export default function Contact() {
                 className="hover:text-green-300 transition"
               >
                 <Phone size={20} />
+              </a>
+              {/* GitHub Icon */}
+              <a
+                href="https://github.com/ratul-hasan00"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-green-300 transition"
+              >
+                <Github size={20} />
               </a>
             </div>
           </div>
